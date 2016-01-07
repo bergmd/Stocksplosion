@@ -31,15 +31,15 @@ $error_code = 1000;
     $company_name = $response->company->name;
 $company_symbol = $response->company->symbol;
 if(preg_match_all('/[aeiou]/i', $stock_name, $ignore) > 0){
-$recommendation_text = "You should buy the stocks";
+$recommendation_text = "Buy Stocks : This stock contains a vowel.";
 $recommendation = "Buy";
 }
 elseif (preg_match_all('/[bcdfg]/i', $stock_name, $ignore) > 0){
-$recommendation_text = "You should wait to buy / sell these stocks";
+$recommendation_text = "Wait : This stock contains either of [b, c, d, f, g]";
 $recommendation = "Wait";
 }
 else{
-$recommendation_text = "You should sell these records";
+$recommendation_text = "Sell Stock : Does not have a vowel and Does not contain [b, c, d, f, g]";
 $recommendation = "Sell";
 }
     }
@@ -53,9 +53,9 @@ curl_close($ch);
         <title>Test</title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <style>
-                            .bg-inverse {background:#444;color:#fff;}
-                                    .bg-grey    {background:#eee;color:#222;}
-                            .padding-30 {padding:30px;}
+            .bg-inverse {background:#444;color:#fff;}
+            .bg-grey    {background:#eee;color:#222;}
+            .padding-is {padding:60px 0px 60px 0px;}
         </style>
     </head>
     <body>
@@ -65,9 +65,9 @@ curl_close($ch);
                 <small>Trading apis</small>
             </div>
         </div>
-        <div class="container-fluid bg-grey padding-30">
+        <div class="container-fluid bg-grey padding-is">
             <h3 class="text-center">Stocksplosion <small>[API for stock recommendations]</small></h3>
-            <div class='text-center'><small>Please enter your stock symbol for testing</small></div>
+            <!-- <div class='text-center'><small>Please enter your stock symbol for testing</small></div> -->
             <hr/>
             <form action="" method="POST" class="form-horizontal" role="form">
                 <div class="col-lg-4 col-lg-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
@@ -115,7 +115,7 @@ curl_close($ch);
                         <div class="panel-heading" role="tab" id="headingOne">
                             <h4 class="panel-title">
                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <div class="text-capitalize">for example : <small> These companies are just for demo and would be removed later</small></div>
+                            <div class="text-capitalize">Help : <small> Click to hide</small></div>
                             </a>
                             </h4>
                         </div>
@@ -123,7 +123,7 @@ curl_close($ch);
                             <table class="panel-body table table-condensed ">
                                 <tbody>
                                     <tr>
-                                        <td>Brown, Harvey and Moen : NBUW</td><td>Beier-Rice : DXBT</td><td> Wuckert, Doyle and Schuppe : VRM</td><td>Herman-Bogan : KZER</td>
+                                        <td>Brown, Harvey and Moen : NBUW</td><td>Beier-Rice : DXBT</td><td> Wuckert, Doyle and Schuppe : VRMZ</td><td>Herman-Bogan : KZER</td>
                                     </tr>
                                     <tr>
                                         <td>Batz-Ruecker : PVNQ</td><td>Welch LLC : IHXT</td><td>Oberbrunner-Christiansen : ZFIF</td><td>Hyatt-Bradtke : VPCN</td>
